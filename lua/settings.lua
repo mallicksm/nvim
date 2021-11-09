@@ -15,7 +15,7 @@ local opt = vim.opt         		-- global/buffer/windows-scoped options
 -----------------------------------------------------------
 -- General
 -----------------------------------------------------------
-g.mapleader = ','             -- change leader to a comma
+g.mapleader = ' '             -- change leader to a comma
 opt.mouse = 'a'               -- enable mouse support
 opt.clipboard = 'unnamedplus' -- copy/paste to system clipboard
 opt.swapfile = false          -- don't use swapfile
@@ -26,7 +26,6 @@ opt.swapfile = false          -- don't use swapfile
 opt.number = true             -- show line number
 opt.showmatch = true          -- highlight matching parenthesis
 opt.foldmethod = 'marker'     -- enable folding (default 'foldmarker')
-opt.colorcolumn = '80'        -- line lenght marker at 80 columns
 opt.splitright = true         -- vertical split to the right
 opt.splitbelow = true         -- orizontal split to the bottom
 opt.ignorecase = true         -- ignore case letters when search
@@ -63,8 +62,8 @@ cmd [[colorscheme rose-pine]]
 -- Tabs, indent
 -----------------------------------------------------------
 opt.expandtab = true      -- use spaces instead of tabs
-opt.shiftwidth = 4        -- shift 4 spaces when tab
-opt.tabstop = 4           -- 1 tab == 4 spaces
+opt.shiftwidth = 3        -- shift 4 spaces when tab
+opt.tabstop = 3           -- 1 tab == 4 spaces
 opt.smartindent = true    -- autoindent new lines
 
 -- don't auto commenting new lines
