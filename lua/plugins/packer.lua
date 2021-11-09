@@ -75,7 +75,7 @@ return packer.startup(function()
    use {
       'folke/which-key.nvim',
       config = function()
-         require('plugins/which-key').setup()
+         require('which-key').setup()
       end,
    }
 end)

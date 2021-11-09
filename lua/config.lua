@@ -5,6 +5,7 @@
    require('plugins/nvim-autopairs')
    require('plugins/feline')
    require('plugins/vista')
+   require('plugins/which-key')
    require('plugins/nvim-cmp')
    require('plugins/nvim-lspconfig')
    require('plugins/nvim-treesitter')
