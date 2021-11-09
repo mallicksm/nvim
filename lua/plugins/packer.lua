@@ -71,4 +71,11 @@ return packer.startup(function()
       require('gitsigns').setup()
     end,
   }
+  -- which-key
+   use {
+      'folke/which-key.nvim',
+      config = function()
+         require('plugins/which-key').setup()
+      end,
+   }
 end)
