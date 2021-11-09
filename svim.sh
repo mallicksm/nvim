@@ -13,6 +13,7 @@ function main() {
    print_logo
  
    rm -rf $HOME/.config/nvim
+   rm -rf $HOME/.local/share/nvim
    git clone $git_repo $HOME/.config/nvim
 }
 
