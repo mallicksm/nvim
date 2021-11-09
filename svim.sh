@@ -11,33 +11,34 @@ SVIM_CACHE_DIR=$HOME/.cache/nvim
 
 SVIM_SHIM="\
 #!/bin/sh
+export SVIM_RUNTIME_DIR=$SVIM_RUNTIME_DIR
 exec nvim -u \"\$SVIM_RUNTIME_DIR/git-svim/init.lua\" \"\$@\"
 "
+git_repo_local=$HOME/git_repo/svim
+git_repo_remote=https://github.com/mallicksm/svim.git
+git_repo=$git_repo_local
 
 declare -a __svim_dirs=(
-  "$SVIM_CONFIG_DIR"
-  "$SVIM_RUNTIME_DIR"
-  "$SVIM_CACHE_DIR"
+   "$SVIM_CONFIG_DIR"
+   "$SVIM_RUNTIME_DIR"
+   "$SVIM_CACHE_DIR"
 )
 
-svim=$HOME/.local/bin/svim
 function main() {
-  print_logo
-
-  for dir in "${__svim_dirs[@]}"; do
-    [ -d "$dir" ] && rm -rf "$dir"
-  done
-
-  git_repo_local=$HOME/git_repo/svim
-  git_repo_remote=https://github.com/mallicksm/svim.git
-  git_repo=git_repo_local
-  git clone --branch master $git_repo $SVIM_RUNTIME_DIR/git-svim
-  echo "$SVIM_SHIM" > $svim;chmod +x $svim
+   print_logo
+ 
+   for dir in "${__svim_dirs[@]}"; do
+      [ -d "$dir" ] && rm -rf "$dir"
+   done
+ 
+   git clone $git_repo $SVIM_RUNTIME_DIR/git-svim
+   svim=$HOME/.local/bin/svim
+   echo "$SVIM_SHIM" > $svim;chmod +x $svim
 }
 
 # Helpers-----------------------------------------------------------------------
 function print_logo() {
-  cat <<'EOF'
+   cat <<'EOF'
                (_)          
     _____   ___ _ __ ___  
    / __\ \ / / | '_ ` _ \ 
