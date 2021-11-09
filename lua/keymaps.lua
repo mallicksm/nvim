@@ -15,13 +15,30 @@ local cmd = vim.cmd
 map('n', '<leader>c', ':nohl<CR>', default_opts)
 
 -- map Esc to kk
+map('i', 'jk', '<Esc>', {noremap = true})
+map('i', 'kj', '<Esc>', {noremap = true})
 map('i', 'kk', '<Esc>', {noremap = true})
+map('i', 'jj', '<Esc>', {noremap = true})
+
+-- Vscode: mapping
+map('i', '<A-j>', '<Esc>:m .+1<CR>==gi', {noremap = true})
+map('i', '<A-k>', '<Esc>:m .-2<CR>==gi', {noremap = true})
+map('n', '<A-j>', ':m .+1<CR>==', {noremap = true})
+map('n', '<A-k>', ':m .-2<CR>==', {noremap = true})
+map('v', '<A-j>', ":m '>+1<CR>gv-gv", {noremap = true})
+map('v', '<A-k>', ":m '<-2<CR>gv-gv", {noremap = true})
 
 -- don't use arrow keys
 map('', '<up>', '<nop>', { noremap = true })
 map('', '<down>', '<nop>', { noremap = true })
 map('', '<left>', '<nop>', { noremap = true })
 map('', '<right>', '<nop>', { noremap = true })
+
+-- Window resizing
+map('n', '<C-Up>', ':resize -2<CR>', { noremap = true })
+map('n', '<C-Down>', ':resize +2<CR>', { noremap = true })
+map('n', '<C-Left>', ':vertical resize -2<CR>', { noremap = true })
+map('n', '<C-Right>', ':vertical resize +2<CR>', { noremap = true })
 
 -- fast saving with <leader> and s
 map('n', '<leader>s', ':w<CR>', default_opts)
