@@ -20,6 +20,7 @@ local fn = vim.fn
 -----------------------------------------------------------
 vim.opt.rtp:prepend('$HOME/.config/svim')
 vim.opt.rtp:prepend('$HOME/.local/share/svim/git-svim')
+vim.opt.rtp:prepend('$HOME/.local/share/svim')
 
 -----------------------------------------------------------
 -- Import Lua modules
