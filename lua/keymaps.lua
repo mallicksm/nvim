@@ -54,7 +54,7 @@ map('n', '<leader>j', '<C-w>j', default_opts)
 map('n', '<leader>k', '<C-w>k', default_opts)
 map('n', '<leader>l', '<C-w>l', default_opts)
 
--- close all windows and exit from neovim
+-- close windows or exit from neovim
 map('n', '<leader>X', ':qa!<CR>', default_opts)
 map('n', '<leader>q', ':q<CR>', default_opts)
 
