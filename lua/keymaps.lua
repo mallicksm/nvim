@@ -27,12 +27,12 @@ map('n', '<A-j>', ':m .+1<CR>==', {noremap = true})
 map('n', '<A-k>', ':m .-2<CR>==', {noremap = true})
 map('v', '<A-j>', ":m '>+1<CR>gv-gv", {noremap = true})
 map('v', '<A-k>', ":m '<-2<CR>gv-gv", {noremap = true})
-
--- don't use arrow keys
-map('', '<up>', '<nop>', { noremap = true })
-map('', '<down>', '<nop>', { noremap = true })
-map('', '<left>', '<nop>', { noremap = true })
-map('', '<right>', '<nop>', { noremap = true })
+map('i', '<A-down>', '<Esc>:m .+1<CR>==gi', {noremap = true})
+map('i', '<A-up>', '<Esc>:m .-2<CR>==gi', {noremap = true})
+map('n', '<A-down>', ':m .+1<CR>==', {noremap = true})
+map('n', '<A-up>', ':m .-2<CR>==', {noremap = true})
+map('v', '<A-down>', ":m '>+1<CR>gv-gv", {noremap = true})
+map('v', '<A-up>', ":m '<-2<CR>gv-gv", {noremap = true})
 
 -- Window resizing
 map('n', '<C-Up>', ':resize -2<CR>', { noremap = true })
@@ -40,18 +40,23 @@ map('n', '<C-Down>', ':resize +2<CR>', { noremap = true })
 map('n', '<C-Left>', ':vertical resize -2<CR>', { noremap = true })
 map('n', '<C-Right>', ':vertical resize +2<CR>', { noremap = true })
 
--- fast saving with <leader> and s
-map('n', '<leader>s', ':w<CR>', default_opts)
-map('i', '<leader>s', '<C-c>:w<CR>', default_opts)
+-- fast saving with <leader> and w
+map('n', '<leader>w', ':w<CR>', default_opts)
+map('i', '<leader>w', '<C-c>:w<CR>', default_opts)
 
--- move around splits using Ctrl + {h,j,k,l}
-map('n', '<C-h>', '<C-w>h', default_opts)
-map('n', '<C-j>', '<C-w>j', default_opts)
-map('n', '<C-k>', '<C-w>k', default_opts)
-map('n', '<C-l>', '<C-w>l', default_opts)
+-- spltting with <leader> and s/i
+map('n', '<leader>s', ':split<CR>', default_opts)
+map('n', '<leader>i', ':vsplit<CR>', default_opts)
+
+-- move around splits using <leader> + {h,j,k,l}
+map('n', '<leader>h', '<C-w>h', default_opts)
+map('n', '<leader>j', '<C-w>j', default_opts)
+map('n', '<leader>k', '<C-w>k', default_opts)
+map('n', '<leader>l', '<C-w>l', default_opts)
 
 -- close all windows and exit from neovim
-map('n', '<leader>q', ':qa!<CR>', default_opts)
+map('n', '<leader>X', ':qa!<CR>', default_opts)
+map('n', '<leader>q', ':q<CR>', default_opts)
 
 -----------------------------------------------------------
 -- Applications & Plugins shortcuts:
