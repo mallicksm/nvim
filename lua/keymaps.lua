@@ -2,72 +2,68 @@
 -- Keymaps configuration file: keymaps of neovim
 -- and plugins.
 -----------------------------------------------------------
+local kmap = function(mode, key, vim_cmd)
+  vim.api.nvim_set_keymap( mode, key, vim_cmd,
+    {noremap = true, silent = true}
+  )
+end
 
 local map = vim.api.nvim_set_keymap
-local default_opts = { noremap = true, silent = true }
-local cmd = vim.cmd
-
 -----------------------------------------------------------
 -- Neovim shortcuts:
 -----------------------------------------------------------
 
 -- clear search highlighting
-map('n', '<leader>c', ':nohl<CR>', default_opts)
-
--- map Esc to kk
-map('i', 'jk', '<Esc>', {noremap = true})
-map('i', 'kj', '<Esc>', {noremap = true})
-map('i', 'kk', '<Esc>', {noremap = true})
-map('i', 'jj', '<Esc>', {noremap = true})
+kmap('n', '<leader>c', ':nohl<CR>')
 
 -- Vscode: mapping
-map('i', '<A-j>', '<Esc>:m .+1<CR>==gi', {noremap = true})
-map('i', '<A-k>', '<Esc>:m .-2<CR>==gi', {noremap = true})
-map('n', '<A-j>', ':m .+1<CR>==', {noremap = true})
-map('n', '<A-k>', ':m .-2<CR>==', {noremap = true})
-map('v', '<A-j>', ":m '>+1<CR>gv-gv", {noremap = true})
-map('v', '<A-k>', ":m '<-2<CR>gv-gv", {noremap = true})
-map('i', '<A-down>', '<Esc>:m .+1<CR>==gi', {noremap = true})
-map('i', '<A-up>', '<Esc>:m .-2<CR>==gi', {noremap = true})
-map('n', '<A-down>', ':m .+1<CR>==', {noremap = true})
-map('n', '<A-up>', ':m .-2<CR>==', {noremap = true})
-map('v', '<A-down>', ":m '>+1<CR>gv-gv", {noremap = true})
-map('v', '<A-up>', ":m '<-2<CR>gv-gv", {noremap = true})
+kmap('i', '<A-j>', '<Esc>:m .+1<CR>==gi')
+kmap('n', '<A-j>', ':m .+1<CR>==')
+kmap('v', '<A-j>', ":m '>+1<CR>gv-gv")
+kmap('i', '<A-k>', '<Esc>:m .-2<CR>==gi')
+kmap('n', '<A-k>', ':m .-2<CR>==')
+kmap('v', '<A-k>', ":m '<-2<CR>gv-gv")
+kmap('i', '<A-down>', '<Esc>:m .+1<CR>==gi')
+kmap('n', '<A-down>', ':m .+1<CR>==')
+kmap('v', '<A-down>', ":m '>+1<CR>gv-gv")
+kmap('i', '<A-up>', '<Esc>:m .-2<CR>==gi')
+kmap('n', '<A-up>', ':m .-2<CR>==')
+kmap('v', '<A-up>', ":m '<-2<CR>gv-gv")
 
 -- Window resizing
-map('n', '<C-Up>', ':resize -2<CR>', { noremap = true })
-map('n', '<C-Down>', ':resize +2<CR>', { noremap = true })
-map('n', '<C-Left>', ':vertical resize -2<CR>', { noremap = true })
-map('n', '<C-Right>', ':vertical resize +2<CR>', { noremap = true })
+kmap('n', '<C-Up>', ':resize -2<CR>')
+kmap('n', '<C-Down>', ':resize +2<CR>')
+kmap('n', '<C-Left>', ':vertical resize -2<CR>')
+kmap('n', '<C-Right>', ':vertical resize +2<CR>')
 
 -- fast saving with <leader> and w
-map('n', '<leader>w', ':w<CR>', default_opts)
-map('i', '<leader>w', '<C-c>:w<CR>', default_opts)
+kmap('n', '<leader>w', ':w<CR>')
+kmap('i', '<leader>w', '<C-c>:w<CR>')
 
 -- spltting with <leader> and s/i
-map('n', '<leader>s', ':split<CR>', default_opts)
-map('n', '<leader>i', ':vsplit<CR>', default_opts)
+kmap('n', '<leader>s', ':split<CR>')
+kmap('n', '<leader>i', ':vsplit<CR>')
 
 -- move around splits using <leader> + {h,j,k,l}
-map('n', '<leader>h', '<C-w>h', default_opts)
-map('n', '<leader>j', '<C-w>j', default_opts)
-map('n', '<leader>k', '<C-w>k', default_opts)
-map('n', '<leader>l', '<C-w>l', default_opts)
+kmap('n', '<leader>h', '<C-w>h')
+kmap('n', '<leader>j', '<C-w>j')
+kmap('n', '<leader>k', '<C-w>k')
+kmap('n', '<leader>l', '<C-w>l')
 
 -- close windows or exit from neovim
-map('n', '<leader>X', ':qa!<CR>', default_opts)
-map('n', '<leader>q', ':q<CR>', default_opts)
+kmap('n', '<leader>X', ':qa!<CR>')
+kmap('n', '<leader>q', ':q<CR>')
 
 -----------------------------------------------------------
 -- Applications & Plugins shortcuts:
 -----------------------------------------------------------
 -- open terminal
-map('n', '<C-t>', ':Term<CR>', { noremap = true })
+kmap('n', '<C-t>', ':Term<CR>')
 
 -- nvim-tree
-map('n', '<leader>e', ':NvimTreeToggle<CR>', default_opts)   -- open/close
-map('n', '<leader>r', ':NvimTreeRefresh<CR>', default_opts)  -- refresh
-map('n', '<leader>f', ':NvimTreeFindFile<CR>', default_opts) -- search file
+kmap('n', '<leader>e', ':NvimTreeToggle<CR>')
+kmap('n', '<leader>r', ':NvimTreeRefresh<CR>')
+kmap('n', '<leader>f', ':NvimTreeFindFile<CR>')
 
 -- Vista tag-viewer
-map('n', '<C-m>', ':Vista!!<CR>', default_opts)   -- open/close
+kmap('n', '<C-m>', ':Vista!!<CR>')
