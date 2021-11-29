@@ -14,22 +14,23 @@
 
 local colors = require 'colors'
 
--- monokai colors
+-- default feline colors
 local vi_mode_colors = {
-  NORMAL = colors.cyan,
-  INSERT = colors.green,
-  VISUAL = colors.yellow,
-  OP = colors.cyan,
-  BLOCK = colors.cyan,
-  REPLACE = colors.red,
-  ['V-REPLACE'] = colors.red,
-  ENTER = colors.orange,
-  MORE = colors.orange,
-  SELECT = colors.yellow,
-  COMMAND = colors.pink,
-  SHELL = colors.pink,
-  TERM = colors.pink,
-  NONE = colors.purple
+  NORMAL    = 'green',      --Normal mode
+  OP        = 'green',      --Operator pending mode
+  INSERT    = 'yellow',     --Insert mode
+  VISUAL    = 'skyblue',    --Visual mode
+  LINES     = 'skyblue',    --Visual lines mode
+  BLOCK     = 'skyblue',    --Visual block mode
+  REPLACE   = 'violet',     --Replace mode
+  ['V-REPLACE'] = 'violet', --Virtual Replace mode
+  ENTER     = 'cyan',       --Enter mode
+  MORE      = 'cyan',       --More mode
+  SELECT    = 'orange',     --Select mode
+  COMMAND   = 'red',        --Command mode
+  SHELL     = 'green',      --Shell mode
+  TERM      = 'green',      --Terminal mode
+  NONE      = 'yellow',     --None
 }
 
 local lsp = require 'feline.providers.lsp'
@@ -73,12 +74,8 @@ local comps = {
           file_modified_icon = ''
         }
       },
-      hl = { fg = colors.cyan },
+      hl = { fg = colors.green },
       icon = '',
-    },
-    -- file type
-    type = {
-      provider = { name = 'file_type' },
     },
     -- operating system
     os = {
@@ -107,80 +104,73 @@ local comps = {
     },
     -- raw-column
     position = {
-      provider = {name = 'position'},
+      provider = { name = 'position' },
       hl = {
         fg = colors.cyan,
         style = 'bold'
       },
       right_sep = ' ',
     },
-    -- simple scrollbar (inactive)
-    scroll_bar = {
-      provider = { name = 'scroll_bar' },
-      hl = { fg = colors.fg },
-      left_sep = ' ',
-      right_sep = ' '
-    },
   },
   -- LSP info
   diagnos = {
     err = {
-      provider = 'diagnostic_errors',
+      provider = { name = 'diagnostic_errors' },
       icon = '⚠ ',
-      hl = { fg = colors.red },
+      hl = { fg = 'red' },
       left_sep = '  ',
     },
     warn = {
-      provider = 'diagnostic_warnings',
+      provider = { name = 'diagnostic_warnings' },
       icon = ' ',
-      hl = { fg = colors.yellow },
+      hl = { fg = 'yellow' },
       left_sep = ' ',
     },
     info = {
-      provider = 'diagnostic_info',
+      provider = { name = 'diagnostic_info' },
       icon = ' ',
-      hl = { fg = colors.green },
+      hl = { fg = 'green' },
       left_sep = ' ',
     },
     hint = {
-      provider = 'diagnostic_hints',
+      provider = { name = 'diagnostic_hints' },
       icon = ' ',
-      hl = { fg = colors.cyan },
+      hl = { fg = 'cyan' },
       left_sep = ' ',
     },
   },
   lsp = {
     name = {
-      provider = 'lsp_client_names',
+      provider = { name = 'lsp_client_names' },
       icon = '  ',
-      hl = { fg = colors.pink },
+      hl = { fg = 'pink' },
       left_sep = '  ',
     }
   },
   -- git info
   git = {
     branch = {
-      provider = 'git_branch',
+      provider = { name = 'git_branch' },
       icon = ' ',
-      hl = { fg = colors.pink },
+      hl = { fg = 'pink' },
       left_sep = '  ',
     },
     add = {
-      provider = 'git_diff_added',
+      provider = { name = 'git_diff_added' },
       icon = '  ',
-      hl = { fg = colors.green },
+      hl = { fg = 'green' },
       left_sep = ' ',
     },
     change = {
-      provider = 'git_diff_changed',
+      provider = { name = 'git_diff_changed' },
       icon = '  ',
-      hl = { fg = colors.orange },
+      hl = { fg = 'orange' },
       left_sep = ' ',
     },
     remove = {
-      provider = 'git_diff_removed',
+      provider = { name = 'git_diff_removed' },
       icon = '  ',
-      hl = { fg = colors.red },
+      hl = { fg = 'red' },
       left_sep = ' ',
     }
   }
@@ -198,7 +188,7 @@ table.insert(components.active, {})
 table.insert(components.inactive, {})
 table.insert(components.inactive, {})
 
--- Right section
+-- Left section
 table.insert(components.active[1], comps.vi_mode.left)
 table.insert(components.active[1], comps.file.info)
 table.insert(components.active[1], comps.git.branch)
@@ -207,7 +197,7 @@ table.insert(components.active[1], comps.git.change)
 table.insert(components.active[1], comps.git.remove)
 table.insert(components.inactive[1], comps.file.info)
 
--- Left Section
+-- Right Section
 table.insert(components.active[2], comps.diagnos.err)
 table.insert(components.active[2], comps.diagnos.warn)
 table.insert(components.active[2], comps.diagnos.hint)
