@@ -8,7 +8,6 @@ local kmap = function(mode, key, vim_cmd)
   )
 end
 
-local map = vim.api.nvim_set_keymap
 -----------------------------------------------------------
 -- Neovim shortcuts:
 -----------------------------------------------------------
@@ -57,8 +56,9 @@ kmap('n', '<leader>q', ':q<CR>')
 -----------------------------------------------------------
 -- Applications & Plugins shortcuts:
 -----------------------------------------------------------
--- open terminal
-kmap('n', '<C-t>', ':Term<CR>')
+-- open/close terminal
+kmap("n", "<leader>T", ":sp<CR> :term<CR>")
+kmap("t", "<Esc>", "<C-\\><C-n>")
 
 -- nvim-tree
 kmap('n', '<leader>e', ':NvimTreeToggle<CR>')
