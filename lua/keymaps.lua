@@ -2,11 +2,7 @@
 -- Keymaps configuration file: keymaps of neovim
 -- and plugins.
 -----------------------------------------------------------
-local kmap = function(mode, key, vim_cmd)
-  vim.api.nvim_set_keymap( mode, key, vim_cmd,
-    {noremap = true, silent = true}
-  )
-end
+local kmap = require('utils').kmap
 
 -----------------------------------------------------------
 -- Neovim shortcuts:
