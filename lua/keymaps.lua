@@ -57,6 +57,8 @@ kmap('n', '<leader>q', ':q<CR>')
 kmap('v', '>', '>gv')
 kmap('v', '<', '<gv')
 kmap('i', 'jj', '<ESC>')
+kmap('n', 'gf', ':e <cfile><CR>')
+kmap('n', 'gF', ':tabe <cfile><CR>')
 
 
 -----------------------------------------------------------

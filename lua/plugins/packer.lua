@@ -52,7 +52,14 @@ return packer.startup(function(use)
          use 'ThePrimeagen/git-worktree.nvim'
       }
    }
+   -- Previews markdown files on browser
    use { 'iamcco/markdown-preview.nvim' }
+
+   -- floaterm
+   use { 'voldikss/vim-floaterm' }
+   -- Search visual pattern with * or #
+   use { 'nelstrom/vim-visual-star-search' }
+
   --use 'nvim-treesitter/nvim-treesitter'
 
 -- -- LSP -Project-based highlighting

@@ -32,7 +32,7 @@ opt.splitbelow = true         -- horizontal split to the bottom
 opt.ignorecase = true         -- ignore case letters when search
 opt.smartcase = true             -- ignore lowercase for the whole pattern
 opt.linebreak = true          -- wrap on word boundary
-opt.scrolloff = 8             -- stop scrolling at 8 lines for better context
+opt.scrolloff = 5             -- stop scrolling at 5 lines for better context
 -- remove whitespace on save
 cmd [[au BufWritePre * :%s/\s\+$//e]]
 
@@ -66,6 +66,9 @@ opt.expandtab = true      -- use spaces instead of tabs
 opt.shiftwidth = 3        -- shift 4 spaces when tab
 opt.tabstop = 3           -- 1 tab == 4 spaces
 opt.smartindent = true    -- autoindent new lines
+opt.signcolumn = 'yes:1'  -- fix sign column to 1 so it doesnt shift right
+opt.wildmenu = true
+opt.wildmode = 'longest:full,full'
 
 -- don't auto commenting new lines
 cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
