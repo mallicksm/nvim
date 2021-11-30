@@ -80,6 +80,21 @@ cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
 opt.completeopt = 'menuone,noselect'
 
 -----------------------------------------------------------
+-- listchars
+-----------------------------------------------------------
+opt.list = true
+opt.listchars = {
+  tab       = '→ '  ,
+  eol       = '↴'   ,
+--nbsp      = '␣'   ,
+--lead      = '␣'   ,
+--space     = '␣'   ,
+  trail     = '•'   ,
+--extends   = '⟩'   ,
+--precedes  = '⟨'   ,
+}
+opt.showbreak = '↪ '
+-----------------------------------------------------------
 -- Terminal
 -----------------------------------------------------------
 -- open a terminal pane on the right using :Term

@@ -60,7 +60,17 @@ return packer.startup(function(use)
    -- Search visual pattern with * or #
    use { 'nelstrom/vim-visual-star-search' }
 
-  --use 'nvim-treesitter/nvim-treesitter'
+ -- "gc" to comment visual regions/lines
+   use { 'numToStr/Comment.nvim' }
+
+ -- "gd/gq" to open/close diffview
+   use { 'sindrets/diffview.nvim' }
+
+
+
+
+
+--use 'nvim-treesitter/nvim-treesitter'
 
 -- -- LSP -Project-based highlighting
 --  use 'neovim/nvim-lspconfig'
