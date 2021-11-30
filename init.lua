@@ -20,6 +20,7 @@ if fn.isdirectory(install_path) == 0 then
    fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
    require('plugins/packer')
    vim.cmd 'autocmd User PackerComplete lua require("config")'
+   vim.cmd 'autocmd User PackerComplete :call mkdp#util#install()'
    require('packer').sync()
 else
    require('plugins/packer')

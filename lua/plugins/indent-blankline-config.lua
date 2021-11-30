@@ -8,6 +8,7 @@
 
 vim.opt.list = true
 vim.opt.listchars:append("eol:↴")
+vim.opt.listchars:append("trail:·")
 require('indent_blankline').setup {
   char = '|',
   show_first_indent_level = false,

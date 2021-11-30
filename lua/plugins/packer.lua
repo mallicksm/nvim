@@ -14,16 +14,17 @@ vim.cmd [[packadd packer.nvim]]
 local packer = require 'packer'
 
 -- Add packages
-return packer.startup(function()
+return packer.startup(function(use)
   use 'wbthomason/packer.nvim' -- packer can manage itself
 
   -- colorschemes
   use { 'rose-pine/neovim', as = 'rose-pine' }
 
-  -- file explorer
-  use { 'kyazdani42/nvim-tree.lua',
+  use { 'preservim/nerdtree',
     requires = {
-      use 'kyazdani42/nvim-web-devicons'
+      use 'ryanoasis/vim-devicons', 
+      use 'tiagofumo/vim-nerdtree-syntax-highlight',
+      use 'Xuyuanp/nerdtree-git-plugin',
     }
   }
 
@@ -37,11 +38,12 @@ return packer.startup(function()
         config = function()
           require('gitsigns').setup()
         end,
-      }
+      },
+      use 'kyazdani42/nvim-web-devicons'
     }
   }
    -- indent line
-   use 'lukas-reineke/indent-blankline.nvim'
+   use { 'lukas-reineke/indent-blankline.nvim' }
 
    -- telescope
    use {
@@ -50,7 +52,7 @@ return packer.startup(function()
          use 'ThePrimeagen/git-worktree.nvim'
       }
    }
-
+   use { 'iamcco/markdown-preview.nvim' }
   --use 'nvim-treesitter/nvim-treesitter'
 
 -- -- LSP -Project-based highlighting

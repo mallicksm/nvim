@@ -53,17 +53,18 @@ kmap('n', '<leader>l', '<C-w>l')
 kmap('n', '<leader>X', ':qa!<CR>')
 kmap('n', '<leader>q', ':q<CR>')
 
+-- Convinient mappings
+kmap('v', '>', '>gv')
+kmap('v', '<', '<gv')
+kmap('i', 'jj', '<ESC>')
+
+
 -----------------------------------------------------------
 -- Applications & Plugins shortcuts:
 -----------------------------------------------------------
 -- open/close terminal
-kmap("n", "<leader>T", ":sp<CR> :term<CR>")
-kmap("t", "<Esc>", "<C-\\><C-n>")
-
--- nvim-tree
-kmap('n', '<leader>e', ':NvimTreeToggle<CR>')
-kmap('n', '<leader>r', ':NvimTreeRefresh<CR>')
-kmap('n', '<leader>f', ':NvimTreeFindFile<CR>')
+kmap('n', '<leader>T', ':sp<CR> :term<CR>')
+kmap('t', '<Esc>', '<C-\\><C-n>')
 
 -- Vista tag-viewer
 kmap('n', '<C-m>', ':Vista!!<CR>')
