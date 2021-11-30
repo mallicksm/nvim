@@ -1,8 +1,4 @@
---local res, comment = pcall(require, "Comment")
---if not res then
---  return
---end
-
+-- https://github.com/numToStr/Comment.nvim
 require('Comment').setup {
 
     opleader = {

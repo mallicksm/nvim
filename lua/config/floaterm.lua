@@ -1,3 +1,4 @@
+-- https://github.com/voldikss/vim-floaterm
 local g = vim.g
 local kmap = require('utils').kmap
 

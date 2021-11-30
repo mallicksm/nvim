@@ -1,6 +1,8 @@
 -----------------------------------------------------------
 -- Keymaps configuration file: keymaps of neovim
 -- and plugins.
+-- https://github.com/jessarcher/dotfiles/blob/master/nvim/init.vim
+-- https://github.com/ibhagwan/nvim-lua/blob/main/lua/plugins/pluginList.lua
 -----------------------------------------------------------
 local kmap = require('utils').kmap
 
@@ -56,7 +58,8 @@ kmap('i', 'jj', '<ESC>')
 kmap('n', 'gf', ':e <cfile><CR>')
 kmap('n', 'gF', ':tabe <cfile><CR>')
 
-
+kmap('n', '<leader>X', ':silent !gio open %<cr><cr>')
+kmap('n', '<leader>x', ':silent !gio open <cfile><cr>')
 -----------------------------------------------------------
 -- Applications & Plugins shortcuts:
 -----------------------------------------------------------

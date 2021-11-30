@@ -1,3 +1,4 @@
+-- https://github.com/nvim-telescope/telescope.nvim
 local g = vim.g
 local kmap = require('utils').kmap
 local telescope = require('telescope')

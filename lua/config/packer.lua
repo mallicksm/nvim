@@ -1,13 +1,8 @@
 -----------------------------------------------------------
 -- Plugin manager configuration file
 -----------------------------------------------------------
-
--- Plugin manager: packer.nvim
 -- https://github.com/wbthomason/packer.nvim
-
--- For information about installed plugins see the README
---- neovim-lua/README.md
---- https://github.com/brainfucksec/neovim-lua#readme
+-- https://github.com/brainfucksec/neovim-lua#readme
 
 vim.cmd [[packadd packer.nvim]]
 
@@ -22,7 +17,7 @@ return packer.startup(function(use)
 
   use { 'preservim/nerdtree',
     requires = {
-      use 'ryanoasis/vim-devicons', 
+      use 'ryanoasis/vim-devicons',
       use 'tiagofumo/vim-nerdtree-syntax-highlight',
       use 'Xuyuanp/nerdtree-git-plugin',
     }
