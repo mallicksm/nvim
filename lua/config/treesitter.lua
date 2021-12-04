@@ -5,6 +5,7 @@ configs.setup {
     'c',
     'lua',
     'cpp',
+    'bash',
   },
   highlight = {
     enable = true,
