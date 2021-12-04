@@ -9,3 +9,4 @@ local default_config = {
 }
 -- setup language servers here
 lspconfig.tsserver.setup(default_config)
+--lspconfig.pyright.setup(default_config)
