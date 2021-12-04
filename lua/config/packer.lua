@@ -13,7 +13,13 @@ return packer.startup(function(use)
   use 'wbthomason/packer.nvim' -- packer can manage itself
 
   -- colorschemes
-  use { 'rose-pine/neovim', as = 'rose-pine' }
+--  use { 'rose-pine/neovim', as = 'rose-pine' }
+--  use { 'bluz71/vim-moonfly-colors', as = 'moonfly' }
+--  use { 'ChristianChiarulli/nvcode-color-schemes.vim', as = 'nvcode' }
+--  use { 'GlennLeo/cobalt2', as =  'cobalt2' }
+  use { 'folke/tokyonight.nvim', as =  'tokyonight' }
+  use { 'sainnhe/sonokai', as =  'sonokai' }
+  use { 'tanvirtin/monokai.nvim', as = 'monokai' }
 
   use { 'preservim/nerdtree',
     requires = {
@@ -42,7 +48,7 @@ return packer.startup(function(use)
 
    -- telescope
    use {
-      use 'nvim-telescope/telescope.nvim',
+      'nvim-telescope/telescope.nvim',
       requires = {
          use 'ThePrimeagen/git-worktree.nvim'
       }
@@ -61,35 +67,16 @@ return packer.startup(function(use)
  -- "gd/gq" to open/close diffview
    use { 'sindrets/diffview.nvim' }
 
+-- treesitter
+-- use {'prettier/vim-prettier', run = 'npm install' }
+   use {
+     'nvim-treesitter/nvim-treesitter',
+     run = ':TSUpdate'
+   }
+   use { 'sheerun/vim-polyglot' }
+-- lsp
+   use 'neovim/nvim-lspconfig'
+   use 'nvim-lua/completion-nvim'
+   use 'anott03/nvim-lspinstall'
 
-
-
-
---use 'nvim-treesitter/nvim-treesitter'
-
--- -- LSP -Project-based highlighting
---  use 'neovim/nvim-lspconfig'
---
--- -- autopair
--- use 'windwp/nvim-autopairs'
---
--- -- icons
---
--- -- tagviewer
--- use 'liuchengxu/vista.vim'
---
--- -- treesitter interface
--- use 'nvim-treesitter/nvim-treesitter'
---
--- -- autocomplete
--- use {
---   'hrsh7th/nvim-cmp',
---   requires = {
---     'L3MON4D3/LuaSnip',
---     'hrsh7th/cmp-nvim-lsp',
---     'hrsh7th/cmp-path',
---     'hrsh7th/cmp-buffer',
---     'saadparwaiz1/cmp_luasnip',
---   },
--- }
 end)

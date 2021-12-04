@@ -33,10 +33,6 @@ kmap('n', '<C-Down>', ':resize +2<CR>')
 kmap('n', '<C-Left>', ':vertical resize -2<CR>')
 kmap('n', '<C-Right>', ':vertical resize +2<CR>')
 
--- fast saving with <leader> and w
-kmap('n', '<leader>w', ':w<CR>')
-kmap('i', '<leader>w', '<C-c>:w<CR>')
-
 -- spltting with <leader> and s/i
 kmap('n', '<leader>s', ':split<CR>')
 kmap('n', '<leader>i', ':vsplit<CR>')
@@ -60,6 +56,7 @@ kmap('n', 'gF', ':tabe <cfile><CR>')
 
 kmap('n', '<leader>X', ':silent !gio open %<cr><cr>')
 kmap('n', '<leader>x', ':silent !gio open <cfile><cr>')
+kmap('n', '<leader>w', ':set wrap!<CR>')
 -----------------------------------------------------------
 -- Applications & Plugins shortcuts:
 -----------------------------------------------------------

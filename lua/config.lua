@@ -8,8 +8,5 @@ require('config/markdown-preview')  -- markdown-preview config
 require('config/floaterm')          -- Floating Xterm
 require('config/comment')           -- Block comments and more
 require('config/diffview')          -- diff view
--- require('plugins/treesitter-config')        -- File-based highlighting
--- require("plugins/nvim-lspconfig")        -- File-based highlighting
--- require('plugins/nvim-autopairs')
--- require('plugins/vista')
--- require('plugins/nvim-cmp')
+require('config/treesitter')
+require('config/lsp')
