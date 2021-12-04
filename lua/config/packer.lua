@@ -73,7 +73,7 @@ return packer.startup(function(use)
      'nvim-treesitter/nvim-treesitter',
      run = ':TSUpdate'
    }
-   use { 'sheerun/vim-polyglot' }
+-- use { 'sheerun/vim-polyglot' }
 -- lsp
    use 'neovim/nvim-lspconfig'
    use 'nvim-lua/completion-nvim'
