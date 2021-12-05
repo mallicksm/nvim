@@ -44,7 +44,6 @@ kmap('n', '<leader>k', '<C-w>k')
 kmap('n', '<leader>l', '<C-w>l')
 
 -- close windows or exit from neovim
-kmap('n', '<leader>X', ':qa!<CR>')
 kmap('n', '<leader>q', '<ESC>:q<CR>')
 
 -- Convinient mappings
