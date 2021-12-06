@@ -9,4 +9,4 @@ require('config/floaterm')          -- Floating Xterm
 require('config/comment')           -- Block comments and more
 require('config/diffview')          -- diff view
 require('config/treesitter')
-require('config/lsp_minimal')
+--require('config/lsp_minimal')

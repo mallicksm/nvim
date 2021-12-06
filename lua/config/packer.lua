@@ -73,9 +73,15 @@ return packer.startup(function(use)
      'nvim-treesitter/nvim-treesitter',
      run = ':TSUpdate'
    }
--- lsp
-   use 'neovim/nvim-lspconfig'
-   use 'nvim-lua/completion-nvim'
-   use 'anott03/nvim-lspinstall'
+    -- LSP
+   use { 'neovim/nvim-lspconfig',    event = 'BufRead' }
+   use { 'williamboman/nvim-lsp-installer',
+      config = function()
+         require('lsp')
+         -- ':command LspStart'
+         -- require'lspconfig'._root.commands.LspStart[1]()
+      end,
+      after  = { 'nvim-lspconfig' },
+   }
 
 end)
