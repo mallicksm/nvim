@@ -74,18 +74,31 @@ return packer.startup(function(use)
      run = ':TSUpdate'
    }
     -- LSP
-   use { 'neovim/nvim-lspconfig' }
-   use { 'williamboman/nvim-lsp-installer' }
+    use { 'L3MON4D3/LuaSnip',
+      config = 'require("config.luasnip")',
+      event = 'InsertEnter' }
+
+    use { 'hrsh7th/nvim-cmp',
+        requires = {
+          { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+          { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+          { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' },
+          { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
+          { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
+        },
+        config = "require('config.cmp')",
+        -- event = "InsertEnter", }
+        }
 
 
--- use { 'neovim/nvim-lspconfig',    event = 'BufRead' }
--- use { 'williamboman/nvim-lsp-installer',
---    config = function()
---       require('lsp')
---       -- ':command LspStart'
---       -- require'lspconfig'._root.commands.LspStart[1]()
---    end,
---    after  = { 'nvim-lspconfig' },
--- }
+   use { 'neovim/nvim-lspconfig',    event = 'BufRead' }
+   use { 'williamboman/nvim-lsp-installer',
+      config = function()
+         require('lsp')
+         -- ':command LspStart'
+         -- require'lspconfig'._root.commands.LspStart[1]()
+      end,
+      after  = { 'nvim-lspconfig' },
+   }
 
 end)
