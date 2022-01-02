@@ -43,7 +43,7 @@ return packer.startup(function(use)
   use "famiu/feline.nvim"
   use "akinsho/toggleterm.nvim"
 --  use "ahmedkhalf/project.nvim"
---  use "lewis6991/impatient.nvim"
+  use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
 --  use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
