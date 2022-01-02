@@ -9,5 +9,5 @@ vim.g.NERDTreeBookmarksSort = true
 vim.g.NERDTreeShowBookmarks = true
 vim.g.NERDTreeShowLineNumbers = true
 vim.g.NERDTreeMinimalUI = true
-vim.g.NERDTreeSortOrder = {'/$', '[[-timestamp]]', '*'}
+vim.g.NERDTreeSortOrder = { "/$", "[[-timestamp]]", "*" }
 vim.g.DevIconsEnableFoldersOpenClose = true
