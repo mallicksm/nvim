@@ -38,6 +38,11 @@ local options = {
   showmatch = true,                        -- highlight matching parenthesis
   wildmenu = true,
   wildmode = "longest:full,full",
+  hidden = true,                           -- enable background buffers
+  history = 100,                           -- remember n lines in history
+  lazyredraw = true,                       -- faster scrolling
+  synmaxcol = 240,                         -- max column for syntax highlight
+
 }
 
 vim.opt.shortmess:append "c"

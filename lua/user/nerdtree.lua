@@ -11,9 +11,3 @@ vim.g.NERDTreeShowLineNumbers = true
 vim.g.NERDTreeMinimalUI = true
 vim.g.NERDTreeSortOrder = {'/$', '*', '[[timestamp]]'}
 vim.g.DevIconsEnableFoldersOpenClose = true
-
-vim.cmd [[
-nnoremap <expr> <leader>e g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : @% == '' ? ':NERDTree<CR>' : ':NERDTreeFind<CR>'
-]]
-
-keymap('n', '<leader>f', '<CMD>NERDTreeFind<CR>', opts)
