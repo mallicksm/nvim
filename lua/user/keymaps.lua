@@ -6,7 +6,7 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
-keymap("", ",", "<Nop>", opts)
+--keymap("", ",", "<Nop>", opts)
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
@@ -61,8 +61,8 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- spltting with <leader> and s/i
-keymap("n", "<leader>s", ":split<CR>", opts)
-keymap("n", "<leader>i", ":vsplit<CR>", opts)
+keymap("n", "<leader>-", ":split<CR>", opts)
+keymap("n", "<leader>|", ":vsplit<CR>", opts)
 keymap("n", "gf", ":e <cfile><CR>", opts)
 keymap("n", "gF", ":tabe <cfile><CR>", opts)
 
