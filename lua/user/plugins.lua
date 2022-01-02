@@ -38,8 +38,8 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "kyazdani42/nvim-web-devicons"
---  use "akinsho/bufferline.nvim"
---  use "moll/vim-bbye"
+  use "akinsho/bufferline.nvim"
+  use "moll/vim-bbye" -- provides :Bdelete and :Bwipeout
   use "famiu/feline.nvim"
   use "akinsho/toggleterm.nvim"
 --  use "ahmedkhalf/project.nvim"
