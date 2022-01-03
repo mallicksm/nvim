@@ -1,8 +1,4 @@
 -- https://github.com/preservim/nerdtree
-local opts = { noremap = true, silent = true }
-
--- Shorten function name
-local keymap = vim.api.nvim_set_keymap
 
 vim.g.NERDTreeWinSize = 35
 vim.g.NERDTreeBookmarksSort = true

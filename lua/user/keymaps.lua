@@ -64,10 +64,3 @@ keymap("n", "<leader>-", ":split<CR>", opts)
 keymap("n", "<leader>|", ":vsplit<CR>", opts)
 keymap("n", "gf", ":e <cfile><CR>", opts)
 keymap("n", "gF", ":tabe <cfile><CR>", opts)
-
--- Terminal --
--- Better terminal navigation
--- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
--- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
--- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
