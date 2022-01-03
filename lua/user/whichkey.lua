@@ -80,7 +80,6 @@ local opts = {
 
 local git_menu = {
    name = "Git",
-   g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
    j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
    k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
    l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
@@ -156,13 +155,18 @@ local search_menu = {
 
 local terminal_menu = {
    name = "Terminal",
-   n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-   u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-   t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-   p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
    f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
    h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+}
+local applications_menu = {
+  name = "Applications",
+   r = { "<cmd>lua _RANGER_TOGGLE()<CR>", "Ranger" },
+   g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+   t = { "<cmd>lua _GLANCES_TOGGLE()<cr>", "Glances" },
+   n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
+   p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+   d = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
 }
 
 local mappings = {
@@ -180,6 +184,7 @@ local mappings = {
    ["x"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
    ["<leader>"] = {
       name = "Sub-Menu",
+      ["a"] = applications_menu,
       ["g"] = git_menu,
       ["l"] = lsp_menu,
       ["p"] = packer_menu,
