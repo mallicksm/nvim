@@ -77,6 +77,7 @@ local opts = {
    noremap = true, -- use `noremap` when creating keymaps
    nowait = true, -- use `nowait` when creating keymaps
 }
+
 local git_menu = {
    name = "Git",
    g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
@@ -132,6 +133,15 @@ local lsp_menu = {
    },
 }
 
+local packer_menu = {
+   name = "Packer",
+   c = { "<cmd>PackerCompile<cr>", "Compile" },
+   i = { "<cmd>PackerInstall<cr>", "Install" },
+   s = { "<cmd>PackerSync<cr>", "Sync" },
+   S = { "<cmd>PackerStatus<cr>", "Status" },
+   u = { "<cmd>PackerUpdate<cr>", "Update" },
+}
+
 local search_menu = {
    name = "Search",
    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -155,28 +165,19 @@ local terminal_menu = {
    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 }
 
-local packer_menu = {
-   name = "Packer",
-   c = { "<cmd>PackerCompile<cr>", "Compile" },
-   i = { "<cmd>PackerInstall<cr>", "Install" },
-   s = { "<cmd>PackerSync<cr>", "Sync" },
-   S = { "<cmd>PackerStatus<cr>", "Status" },
-   u = { "<cmd>PackerUpdate<cr>", "Update" },
-}
-
 local mappings = {
    ["b"] = { "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Buffers", },
    ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-   ["e"] = { "<cmd>NERDTree<cr>", "Explorer" },
+   ["e"] = { "<cmd>NERDTreeToggle<cr>", "NERDTree" },
    ["f"] = { "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Find files", },
 
    ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-   ["n"] = { "<cmd>NERDTreeFind<cr>", "NERDTree File" },
+   ["n"] = { "<cmd>NERDTreeFind<cr>", "NERDTree find" },
    ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
    ["q"] = { "<cmd>q!<CR>", "Quit" },
 
    ["w"] = { "<cmd>w!<CR>", "Save" },
-   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+   ["x"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
    ["<leader>"] = {
       name = "Sub-Menu",
       ["g"] = git_menu,
