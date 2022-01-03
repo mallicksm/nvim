@@ -5,7 +5,9 @@ end
 
 bufferline.setup({
    options = {
-      numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
+      numbers = function(opts)
+         return string.format("%s", opts.lower(opts.ordinal))
+      end,
       close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
       right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
       left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
@@ -13,7 +15,7 @@ bufferline.setup({
       -- NOTE: this plugin is designed with this icon in mind,
       -- and so changing this is NOT recommended, this is intended
       -- as an escape hatch for people who cannot bear it for whatever reason
-      indicator_icon = "▎",
+      indicator_icon = " *",
       buffer_close_icon = "",
       -- buffer_close_icon = '',
       modified_icon = "●",
@@ -56,8 +58,21 @@ bufferline.setup({
       --   end
       -- end,
       offsets = {
-         { filetype = "NvimTree", text = "", padding = 1 },
-         { filetype = "nerdtree", text = "", padding = 1 },
+         {
+            filetype = "NvimTree",
+            text = "NvimTree Explorer",
+            text_align = "left",
+            highlight = "Directory",
+            text = "",
+            padding = 1,
+         },
+         {
+            filetype = "nerdtree",
+            text = "NERDTree Explorer",
+            text_align = "left",
+            highlight = "Directory",
+            padding = 1,
+         },
       },
       show_buffer_icons = true,
       show_buffer_close_icons = true,
@@ -66,7 +81,8 @@ bufferline.setup({
       persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
       -- can also be a table containing 2 custom separators
       -- [focused and unfocused]. eg: { '|', '|' }
-      separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
+      -- separator_style = "|",
+      separator_style = "|",
       enforce_regular_tabs = true,
       always_show_bufferline = true,
       -- sort_by = 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
@@ -108,6 +124,7 @@ bufferline.setup({
       tab_selected = {
          guifg = { attribute = "fg", highlight = "Normal" },
          guibg = { attribute = "bg", highlight = "Normal" },
+         gui = "bold",
       },
       tab = {
          guifg = { attribute = "fg", highlight = "TabLine" },
