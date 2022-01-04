@@ -90,6 +90,10 @@ nvim_tree.setup({
             { key = "h", cb = tree_cb("close_node") },
             { key = { "v", "i"}, cb = tree_cb("vsplit") },
             { key = "s", cb = tree_cb("split") },
+            { key = "S", cb = tree_cb("system_open") },
+            { key = { "U", "u" }, cb = tree_cb("dir_up") },
+            { key = "?", cb = tree_cb("toggle_help") },
+            { key = "C", cb = tree_cb("cd") },
          },
       },
       number = true,
@@ -111,3 +115,7 @@ nvim_tree.setup({
       tree_width = 30,
    },
 })
+vim.cmd [[
+  highlight NvimTreeSymlink guifg=yellow
+  highlight NvimTreeExecFile guifg=cyan
+]]
