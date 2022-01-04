@@ -173,6 +173,7 @@ local mappings = {
    ["b"] = { "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Buffers", },
    ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
    ["e"] = { "<cmd>NERDTreeToggle<cr>", "NERDTree" },
+   ["E"] = { "<cmd>NvimTreeToggle<cr>", "NvimTree" },
    ["f"] = { "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Find files", },
 
    ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
