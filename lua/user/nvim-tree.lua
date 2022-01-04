@@ -70,7 +70,7 @@ nvim_tree.setup({
    },
    filters = {
       dotfiles = false,
-      custom = {},
+      custom = {".gitignore", ".git"},
    },
    git = {
       enable = true,
@@ -78,7 +78,7 @@ nvim_tree.setup({
       timeout = 500,
    },
    view = {
-      width = 30,
+      width = 35,
       height = 30,
       hide_root_folder = false,
       side = "left",
@@ -88,7 +88,8 @@ nvim_tree.setup({
          list = {
             { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
             { key = "h", cb = tree_cb("close_node") },
-            { key = "v", cb = tree_cb("vsplit") },
+            { key = { "v", "i"}, cb = tree_cb("vsplit") },
+            { key = "s", cb = tree_cb("split") },
          },
       },
       number = false,
