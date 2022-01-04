@@ -71,7 +71,7 @@ bufferline.setup({
             text = "NERDTree Explorer",
             text_align = "left",
             highlight = "Directory",
-            padding = 5,
+            padding = 1,
          },
       },
       show_buffer_icons = true,
