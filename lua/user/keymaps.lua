@@ -64,3 +64,6 @@ keymap("n", "<leader>-", ":split<CR>", opts)
 keymap("n", "<leader>|", ":vsplit<CR>", opts)
 keymap("n", "gf", ":e <cfile><CR>", opts)
 keymap("n", "gF", ":tabe <cfile><CR>", opts)
+
+-- Custom
+keymap("n", "<F1>", "<cmd>Telescope commands<CR>", opts)
