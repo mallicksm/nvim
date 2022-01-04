@@ -161,7 +161,7 @@ local terminal_menu = {
    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 }
 local applications_menu = {
-  name = "Applications",
+   name = "Applications",
    r = { "<cmd>lua _RANGER_TOGGLE()<CR>", "Ranger" },
    g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
    t = { "<cmd>lua _GLANCES_TOGGLE()<cr>", "Glances" },
@@ -171,11 +171,18 @@ local applications_menu = {
 }
 
 local mappings = {
-   ["b"] = { "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Buffers", },
+   ["b"] = {
+      "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+      "Buffers",
+   },
+   ["/"] = { "<cmd>lua require(\"Comment.api\").toggle_current_linewise()<CR>", "Comment" },
    ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
    ["E"] = { "<cmd>NERDTreeToggle<cr>", "NERDTree" },
    ["e"] = { "<cmd>NvimTreeToggle<cr>", "NvimTree" },
-   ["f"] = { "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Find files", },
+   ["f"] = {
+      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+      "Find files",
+   },
 
    ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
    ["n"] = { "<cmd>NERDTreeFind<cr>", "NERDTree find" },
