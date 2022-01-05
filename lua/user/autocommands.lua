@@ -30,6 +30,11 @@ vim.cmd([[
   augroup end
 ]])
 
+vim.cmd([[set whichwrap+=<,>,[,],h,l]])
+vim.cmd([[set iskeyword+=-]])
+vim.cmd([[autocmd BufLeave,FocusLost * silent! wall]])
+vim.cmd([[autocmd BufWritePre * :%s/\s\+$//e]])
+
 -- Autoformat
 -- augroup _lsp
 --   autocmd!
