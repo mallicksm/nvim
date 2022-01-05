@@ -90,6 +90,12 @@ local comps = {
          hl = { fg = colors.green },
          icon = "",
       },
+      -- file type
+      type = {
+         provider = { name = "file_type" },
+         left_sep = " ",
+         right_sep = "",
+      },
       -- operating system
       os = {
          provider = function()
@@ -105,7 +111,7 @@ local comps = {
             return icon .. os
          end,
          hl = { fg = colors.fg },
-         left_sep = " ",
+         left_sep = "",
          right_sep = " ",
       },
       -- cursor position in %
@@ -216,6 +222,7 @@ table.insert(components.active[2], comps.diagnos.warn)
 table.insert(components.active[2], comps.diagnos.hint)
 table.insert(components.active[2], comps.diagnos.info)
 table.insert(components.active[2], comps.lsp.name)
+table.insert(components.active[2], comps.file.type)
 table.insert(components.active[2], comps.file.os)
 table.insert(components.active[2], comps.file.line_percentage)
 table.insert(components.active[2], comps.file.position)
