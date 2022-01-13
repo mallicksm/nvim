@@ -215,7 +215,7 @@ local m_opts = {
 }
 
 local m_mappings = {
-  a = { "<cmd>BookmarkAnnotate<cr>", "Annotate" },
+  A = { "<cmd>BookmarkAnnotate<cr>", "Annotate" },
   c = { "<cmd>BookmarkClear<cr>", "Clear" },
   m = { "<cmd>BookmarkToggle<cr>", "Toggle" },
   h = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },

@@ -81,7 +81,7 @@ bufferline.setup({
       -- can also be a table containing 2 custom separators
       -- [focused and unfocused]. eg: { '|', '|' }
       -- separator_style = "|",
-      separator_style = "thin",
+      separator_style = "thick",
       enforce_regular_tabs = true,
       always_show_bufferline = true,
       -- sort_by = 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
