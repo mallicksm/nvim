@@ -1,15 +1,16 @@
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
+vim.g.nvim_tree_highlight_opened_files = 0
 vim.g.nvim_tree_icons = {
    default = "",
    symlink = "",
    git = {
-      unstaged = "",
-      staged = "S",
+      unstaged = "✗",
+      staged = "✓",
       unmerged = "",
       renamed = "➜",
       deleted = "",
-      untracked = "U",
+      untracked = "★",
       ignored = "◌",
    },
    folder = {
@@ -60,8 +61,8 @@ nvim_tree.setup({
       },
    },
    update_focused_file = {
-      enable = true,
-      update_cwd = true,
+      enable = false,
+      update_cwd = false,
       ignore_list = {},
    },
    system_open = {
@@ -70,7 +71,7 @@ nvim_tree.setup({
    },
    filters = {
       dotfiles = false,
-      custom = {".gitignore", ".git"},
+      custom = {".gitignore", ".git", ".settings", ".project", ".cproject", "tags"},
    },
    git = {
       enable = true,
@@ -88,8 +89,8 @@ nvim_tree.setup({
          list = {
             { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
             { key = "h", cb = tree_cb("close_node") },
-            { key = { "v", "i"}, cb = tree_cb("vsplit") },
-            { key = "s", cb = tree_cb("split") },
+            { key = { "v", "i"}, cb = tree_cb("split") },
+            { key = "s", cb = tree_cb("vsplit") },
             { key = "S", cb = tree_cb("system_open") },
             { key = { "U", "u" }, cb = tree_cb("dir_up") },
             { key = "?", cb = tree_cb("toggle_help") },
@@ -99,6 +100,7 @@ nvim_tree.setup({
       number = true,
       relativenumber = true,
    },
+   refresh_wait = 500,
    trash = {
       cmd = "trash",
       require_confirm = true,
@@ -118,4 +120,5 @@ nvim_tree.setup({
 vim.cmd [[
   highlight NvimTreeSymlink guifg=yellow
   highlight NvimTreeExecFile guifg=cyan
+  nnoremap <leader>\ :NvimTreeFindFile<CR>
 ]]
