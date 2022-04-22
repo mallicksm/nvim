@@ -189,7 +189,8 @@ local mappings = {
    ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
    ["q"] = { "<cmd>q<CR>", "Quit" },
 
-   ["w"] = { "<cmd>w!<CR>", "Save" },
+   ["w"] = { "<cmd>set wrap!<CR>", "toggle wrap" },
+   ["r"] = { "<cmd>edit!<CR>", "refresh" },
    ["x"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
    ["<leader>"] = {
       name = "Sub-Menu",
