@@ -115,12 +115,12 @@ cmp.setup({
       { name = "buffer" },
       { name = "path" },
    },
+   window = {
+      documentation = cmp.config.window.bordered(),
+   },
    confirm_opts = {
       behavior = cmp.ConfirmBehavior.Replace,
       select = false,
-   },
-   documentation = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
    },
    experimental = {
       ghost_text = false,
