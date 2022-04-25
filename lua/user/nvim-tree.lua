@@ -71,7 +71,7 @@ nvim_tree.setup({
    },
    filters = {
       dotfiles = false,
-      custom = {".gitignore", ".git", ".settings", ".project", ".cproject", "tags"},
+      custom = {"\\.gitignore", "\\.git", "\\.settings", "\\.project", "\\.cproject", "tags"},
    },
    git = {
       enable = true,
