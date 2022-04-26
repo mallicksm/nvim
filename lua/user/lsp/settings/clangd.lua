@@ -1,4 +1,4 @@
--- from .config
+-- Unused
 return {
    settings = {
       cmd = { "clangd" },

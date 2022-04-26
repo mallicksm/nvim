@@ -51,6 +51,22 @@ vim.g.nvim_tree_icons = {
    },
 }
 
+-- More available functions:
+-- NvimTreeOpen
+-- NvimTreeClose
+-- NvimTreeFocus
+-- NvimTreeFindFileToggle
+-- NvimTreeResize
+-- NvimTreeCollapse
+-- NvimTreeCollapseKeepBuffers
+
+vim.cmd [[
+  highlight NvimTreeSymlink guifg=yellow
+  highlight NvimTreeExecFile guifg=cyan gui=bold
+  highlight NvimTreeSpecialFile guifg=yellow gui=bold
+  nnoremap <leader>\ :NvimTreeFindFile<CR>
+]]
+
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
    return
@@ -72,7 +88,6 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 nvim_tree.setup({
   auto_reload_on_write = true,
   disable_netrw = true,
-  hide_root_folder = true,
   hijack_cursor = false,
   hijack_netrw = true,
   hijack_unnamed_buffer_when_opening = false,
@@ -85,6 +100,7 @@ nvim_tree.setup({
   view = {
     width = 30,
     height = 30,
+    hide_root_folder = true,
     side = "left",
     preserve_window_proportions = false,
     number = true,
@@ -189,10 +205,3 @@ nvim_tree.setup({
     },
   },
 })
-
-vim.cmd [[
-  highlight NvimTreeSymlink guifg=yellow
-  highlight NvimTreeExecFile guifg=cyan gui=bold
-  highlight NvimTreeSpecialFile guifg=yellow gui=bold
-  nnoremap <leader>\ :NvimTreeFindFile<CR>
-]]
