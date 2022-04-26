@@ -1,24 +1,53 @@
--- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
-vim.g.nvim_tree_highlight_opened_files = 0
+vim.g.nvim_tree_git_hl = 1                  --0 by default, will enable file highlight for git attributes (can be used without the icons).
+vim.g.nvim_tree_highlight_opened_files = 0  --0 by default, will enable folder and file icon highlight for opened files/directories.
+vim.g.nvim_tree_root_folder_modifier = ':~' --This is the default. See :help filename-modifiers for more options
+vim.g.nvim_tree_add_trailing = 0            --0 by default, append a trailing slash to folder names
+vim.g.nvim_tree_group_empty = 1             --0 by default, compact folders that only contain a single folder into one node in the file tree
+vim.g.nvim_tree_icon_padding = ' '          --one space by default, used for rendering the space between the icon and the filename. Use with caution, it could break rendering if you set an empty string depending on your font.
+vim.g.nvim_tree_symlink_arrow = ' ➛ '       --defaults to ' ➛ '. used as a separator between symlinks' source and target.
+vim.g.nvim_tree_respect_buf_cwd = 1         --0 by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
+vim.g.nvim_tree_create_in_closed_folder = 1 --0 by default, When creating files, sets the path of a file when cursor is on a closed folder to the parent folder when 0, and inside the folder when 1.
+-- List of filenames that gets highlighted with NvimTreeSpecialFile
+vim.g.nvim_tree_special_files = {
+   Makefile = true,
+}
+vim.g.nvim_tree_show_icons = {
+   git = 1,
+   folders = 1,
+   files = 1,
+   folder_arrows = 1,
+}
+-- If 0, do not show the icons for one of 'git' 'folder' and 'files'
+-- 1 by default, notice that if 'files' is 1, it will only display
+-- if nvim-web-devicons is installed and on your runtimepath.
+-- if folder is 1, you can also tell folder_arrows 1 to show small arrows next to the folder icons.
+-- but this will not work when you set renderer.indent_markers.enable (because of UI conflict)
+
+-- default will show icon by default if no icon is provided
+-- default shows no icon by default
+
 vim.g.nvim_tree_icons = {
-   default = "",
+   default = "",
    symlink = "",
    git = {
       unstaged = "✗",
       staged = "✓",
       unmerged = "",
       renamed = "➜",
-      deleted = "",
       untracked = "★",
-      ignored = "◌",
+      deleted = "",
+      ignored = "◌"
    },
    folder = {
+      arrow_open = "",
+      arrow_closed = "",
       default = "",
       open = "",
       empty = "",
       empty_open = "",
       symlink = "",
+      symlink_open = "",
    },
 }
 
@@ -32,93 +61,138 @@ if not config_status_ok then
    return
 end
 
+-- key can be either a string or a table of string (lhs)
+-- action is the name of the action, set to `""` to remove default action
+-- action_cb is the function that will be called, it receives the node as a parameter. Optional for default actions
+-- mode is normal by default
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
+-- setup with all defaults
+-- each of these are documented in `:help nvim-tree.OPTION_NAME`
 nvim_tree.setup({
-   disable_netrw = true,
-   hijack_netrw = true,
-   open_on_setup = true,
-   ignore_ft_on_setup = {
-      "startify",
-      "dashboard",
-      "alpha",
-   },
-   auto_close = false,
-   open_on_tab = false,
-   hijack_cursor = false,
-   update_cwd = false,
-   update_to_buf_dir = {
-      enable = true,
-      auto_open = true,
-   },
-   diagnostics = {
-      enable = true,
-      icons = {
-         hint = "",
-         info = "",
-         warning = "",
-         error = "",
+  auto_reload_on_write = true,
+  disable_netrw = true,
+  hide_root_folder = true,
+  hijack_cursor = false,
+  hijack_netrw = true,
+  hijack_unnamed_buffer_when_opening = false,
+  ignore_buffer_on_setup = false,
+  open_on_setup = true,
+  open_on_setup_file = false,
+  open_on_tab = false,
+  sort_by = "name",
+  update_cwd = false,
+  view = {
+    width = 30,
+    height = 30,
+    side = "left",
+    preserve_window_proportions = false,
+    number = true,
+    relativenumber = true,
+    signcolumn = "yes",
+    mappings = {
+      custom_only = false,
+      list = {
+        -- user mappings go here
+         { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
+         { key = "h", cb = tree_cb("close_node") },
+         { key = { "v", "i"}, cb = tree_cb("split") },
+         { key = "s", cb = tree_cb("vsplit") },
+         { key = "S", cb = tree_cb("system_open") },
+         { key = { "U", "u" }, cb = tree_cb("dir_up") },
+         { key = "?", cb = tree_cb("toggle_help") },
+         { key = "C", cb = tree_cb("cd") },
       },
-   },
-   update_focused_file = {
+    },
+  },
+  renderer = {
+    indent_markers = {
       enable = false,
-      update_cwd = false,
-      ignore_list = {},
-   },
-   system_open = {
-      cmd = nil,
-      args = {},
-   },
-   filters = {
-      dotfiles = false,
-      custom = {"\\.gitignore", "\\.git", "\\.settings", "\\.project", "\\.cproject", "tags"},
-   },
-   git = {
-      enable = true,
-      ignore = true,
-      timeout = 500,
-   },
-   view = {
-      width = 35,
-      height = 30,
-      hide_root_folder = true,
-      side = "left",
-      auto_resize = true,
-      mappings = {
-         custom_only = false,
-         list = {
-            { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
-            { key = "h", cb = tree_cb("close_node") },
-            { key = { "v", "i"}, cb = tree_cb("split") },
-            { key = "s", cb = tree_cb("vsplit") },
-            { key = "S", cb = tree_cb("system_open") },
-            { key = { "U", "u" }, cb = tree_cb("dir_up") },
-            { key = "?", cb = tree_cb("toggle_help") },
-            { key = "C", cb = tree_cb("cd") },
-         },
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        none = "  ",
       },
-      number = true,
-      relativenumber = true,
-   },
-   refresh_wait = 500,
-   trash = {
-      cmd = "trash",
-      require_confirm = true,
-   },
-   quit_on_open = 0,
-   git_hl = 1,
-   disable_window_picker = 0,
-   root_folder_modifier = ":t",
-   show_icons = {
-      git = 1,
-      folders = 1,
-      files = 1,
-      folder_arrows = 1,
-      tree_width = 30,
-   },
+    },
+    icons = {
+      webdev_colors = true,
+    },
+  },
+  hijack_directories = {
+    enable = true,
+    auto_open = true,
+  },
+  update_focused_file = {
+    enable = false,
+    update_cwd = false,
+    ignore_list = {},
+  },
+  ignore_ft_on_setup = {},
+  system_open = {
+    cmd = nil,
+    args = {},
+  },
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    },
+  },
+  filters = {
+    dotfiles = false,
+    exclude = {},
+    custom = {"\\.gitignore", "\\.git", "\\.settings", "\\.project", "\\.cproject", "tags"},
+  },
+  git = {
+    enable = true,
+    ignore = true,
+    timeout = 400,
+  },
+  actions = {
+    use_system_clipboard = true,
+    change_dir = {
+      enable = true,
+      global = false,
+      restrict_above_cwd = false,
+    },
+    open_file = {
+      quit_on_open = false,
+      resize_window = false,
+      window_picker = {
+        enable = true,
+        chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+        exclude = {
+          filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+          buftype = { "nofile", "terminal", "help" },
+        },
+      },
+    },
+  },
+  trash = {
+    cmd = "trash",
+    require_confirm = true,
+  },
+  log = {
+    enable = false,
+    truncate = false,
+    types = {
+      all = false,
+      config = false,
+      copy_paste = false,
+      diagnostics = false,
+      git = false,
+      profile = false,
+    },
+  },
 })
+
 vim.cmd [[
   highlight NvimTreeSymlink guifg=yellow
-  highlight NvimTreeExecFile guifg=cyan
+  highlight NvimTreeExecFile guifg=cyan gui=bold
+  highlight NvimTreeSpecialFile guifg=yellow gui=bold
   nnoremap <leader>\ :NvimTreeFindFile<CR>
 ]]

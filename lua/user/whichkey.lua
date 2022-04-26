@@ -190,7 +190,7 @@ local mappings = {
    ["q"] = { "<cmd>q<CR>", "Quit" },
 
    ["w"] = { "<cmd>set wrap!<CR>", "toggle wrap" },
-   ["r"] = { "<cmd>edit!<CR>", "refresh" },
+   ["r"] = { "<cmd>edit!<CR><cmd>NvimTreeRefresh<CR>", "refresh" },
    ["x"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
    ["<leader>"] = {
       name = "Sub-Menu",

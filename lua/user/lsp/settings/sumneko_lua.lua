@@ -1,4 +1,3 @@
-print(vim.fn.stdpath("data"))
 return {
    settings = {
 
