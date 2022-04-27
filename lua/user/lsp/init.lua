@@ -39,6 +39,11 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
+local settings = function(server)
+   if server == 'sumneko_lua' then
+      return require'user.lsp.settings.sumneko_lua'
+   end
+end
 
 local servers = { 'clangd' ,'sumneko_lua', 'bashls' , 'pyright' }
 for _, lsp in pairs(servers) do
@@ -49,9 +54,7 @@ for _, lsp in pairs(servers) do
       on_attach = on_attach,
       cmd = require'lspcontainers'.command(lsp),
       capabilities = capabilities,
-      root_dir = function()
-         return vim.fn.getcwd()
-      end,
+      root_dir = lspconfig.util.root_pattern(".git", vim.fn.getcwd()),
+      settings = settings(lsp),
    }
 end
---require("user.lsp.handlers").setup()
